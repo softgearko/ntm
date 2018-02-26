@@ -9,7 +9,7 @@ You can see [my slide](https://docs.google.com/presentation/d/1FqU7q-vWN9uV7sMRt
 ## Prerequisites
 
 * Python 3.5
-* TensorFlow 1.2.0
+* TensorFlow 1.2.0 (1.5.0 tested)
 * NumPy
 * Pillow (For MANN, prepoccessing of Omniglot dataset)
 
@@ -45,12 +45,21 @@ for t in range(seq_length):
 
 #### Train and Test
 
+(You may need create ./save/copy_task/NTM directory first.)
+
 To train the model, run:
 
 ```
 python copy_task.py
 ```
 You can specify training options including parameters to the model via flags, such as `--model` (default is NTM), `--batch_size` and so on. See code for more detail.
+
+You may train the model with these arguments:
+
+```
+python3 copy_task.py --rnn_num_layers 3 --rnn_size 64 --max_seq_length 10 --memory_size 20 --memory_vector_dim 8 --vector_dim 4
+```
+
 
 To test the model, run:
 
