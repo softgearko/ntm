@@ -102,9 +102,11 @@ class OmniglotDataLoader:
         else:
             rand_rotate = self.rand_rotate_map[batch, c] * 90                       # rotate by 0, pi/2, pi, 3pi/2
             image = ImageOps.invert(image.convert('L')) \
-                .rotate(rand_rotate + np.random.rand() * 22.5 - 11.25,
-                        translate=np.random.randint(-10, 11, size=2).tolist()) \
-                .resize(self.image_size)   # rotate between -pi/16 to pi/16, translate bewteen -10 and 10
+                .rotate(rand_rotate + np.random.rand() * 22.5 - 11.25) \
+                .resize(self.image_size)  # rotate between -pi/16 to pi/16, translate bewteen -10 and 10
+                #.rotate(rand_rotate + np.random.rand() * 22.5 - 11.25,
+                #        translate=np.random.randint(-10, 11, size=2).tolist())
+                #.resize(self.image_size)   # rotate between -pi/16 to pi/16, translate bewteen -10 and 10
         np_image = np.reshape(np.array(image, dtype=np.float32),
                           newshape=(self.image_size[0] * self.image_size[1]))
         max_value = np.max(np_image)    # normalization is important
