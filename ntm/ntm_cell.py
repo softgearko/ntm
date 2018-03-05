@@ -3,7 +3,7 @@ import numpy as np
 
 class NTMCell():
     def __init__(self, rnn_size, memory_size, memory_vector_dim, read_head_num, write_head_num,
-                 addressing_mode='content_and_loaction', shift_range=1, reuse=False, output_dim=None):
+                 addressing_mode='content_and_location', shift_range=1, reuse=False, output_dim=None):
         self.rnn_size = rnn_size
         self.memory_size = memory_size
         self.memory_vector_dim = memory_vector_dim
